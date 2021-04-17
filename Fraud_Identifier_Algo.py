@@ -1,8 +1,3 @@
-#Created using Jupyter Notebook, creditcard.csv dataset from Kaggle (https://www.kaggle.com/mlg-ulb/creditcardfraud)
-
-#Fraudulent Transaction Identifier Algorithm
-
-#Uses Isolation Forest and Local Outlier Factor algorithms to check for valid transactions and fraudulent transactions
 import sys
 import numpy
 import pandas
