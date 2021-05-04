@@ -1,9 +1,20 @@
+#importing packages
 import sys
 import numpy
 import pandas
 import matplotlib
 import seaborn
 import scipy
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+#Importing packages for algorithms
+from sklearn.metrics import classification_report, accuracy_score
+from sklearn.ensemble import IsolationForest
+from sklearn.neighbors import LocalOutlierFactor
 
 print ('Python: ' + format(sys.version))
 print ('Numpy: ' + format(numpy.__version__))
@@ -12,27 +23,9 @@ print ('Matplotlib: ' + format(matplotlib.__version__))
 print ('Seaborn: ' + format(seaborn.__version__))
 print ('Scipy: ' + format(scipy.__version__))
 
-#importing packages
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 #load dataset from the Kaggle creditcard csv file
 data = pd.read_csv('creditcard.csv')
-
-#Checking info in dataset
-print(data.columns)
-print(data.shape)
-print(data.describe())
-
-#Testing with 10% of information from dataset
-data = data.sample(frac = 0.1, random_state = 1)
-print(data.shape)
-
-#Histogram of each parameter
-data.hist(figsize = (20,20))
-plt.show()
 
 #Showing the amount of fraudulent transactions and the amount of Valid Transactions 
 #Finding amount of fraudulent transactions
@@ -68,11 +61,6 @@ Y = data[target]
 print (X.shape)
 print (Y.shape)
 
-#Importing packages for algorithms
-from sklearn.metrics import classification_report, accuracy_score
-from sklearn.ensemble import IsolationForest
-from sklearn.neighbors import LocalOutlierFactor
-
 #define random state
 state = 1
 
@@ -104,7 +92,6 @@ for i, (clf_name, clf) in enumerate(classifiers.items()):
     
     n_errors = (y_pred != Y).sum()
     
-    #Run classification metrics
     
     print('{}: {}'.format(clf_name, n_errors))
     print(accuracy_score(Y, y_pred))
